@@ -79,7 +79,11 @@ window.addEventListener("load", function load(event){
 
 		    select_el.appendChild(opt);
 		}
-		
+
+		/*
+
+		   The underlying Go functions for these don't work as expected in a SFO Museum context
+		   
 		select_el.onchange = function(){
 
 		    ancestors_el.innerHTML = "";
@@ -94,7 +98,8 @@ window.addEventListener("load", function load(event){
 		    set_descendants(pt);
 		    set_ancestors(pt);		    
 		};
-		
+
+		*/
 	    })
 	    .catch ((err) => {
 		console.log("SAD", err);
