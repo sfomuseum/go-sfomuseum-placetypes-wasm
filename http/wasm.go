@@ -1,6 +1,7 @@
 package http
 
 import (
+	"log"
 	gohttp "net/http"
 
 	aa_static "github.com/aaronland/go-http-static"
@@ -49,5 +50,6 @@ func AppendAssetHandlers(mux *gohttp.ServeMux) error {
 // Append all the files in the net/http FS instance containing the embedded WASM assets to an *http.ServeMux instance ensuring that all URLs are prepended with prefix.
 func AppendAssetHandlersWithPrefix(mux *gohttp.ServeMux, prefix string) error {
 
+	log.Println("WOO")
 	return aa_static.AppendStaticAssetHandlersWithPrefix(mux, static.FS, prefix)
 }

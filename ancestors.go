@@ -6,7 +6,7 @@ import (
 	"strings"
 	"syscall/js"
 
-	wof_placetypes "github.com/whosonfirst/go-whosonfirst-placetypes"	
+	wof_placetypes "github.com/whosonfirst/go-whosonfirst-placetypes"
 )
 
 func AncestorsFunc(spec *wof_placetypes.WOFPlacetypeSpecification) js.Func {
@@ -14,7 +14,7 @@ func AncestorsFunc(spec *wof_placetypes.WOFPlacetypeSpecification) js.Func {
 	return js.FuncOf(func(this js.Value, args []js.Value) interface{} {
 
 		var roles []string
-		
+
 		str_pt := args[0].String()
 
 		if len(args) > 1 {
@@ -39,7 +39,7 @@ func AncestorsFunc(spec *wof_placetypes.WOFPlacetypeSpecification) js.Func {
 				var ancestors []*wof_placetypes.WOFPlacetype
 
 				if len(roles) == 0 {
-					ancestors = spec.Ancestors(pt)					
+					ancestors = spec.Ancestors(pt)
 				} else {
 					ancestors = spec.AncestorsForRoles(pt, roles)
 				}

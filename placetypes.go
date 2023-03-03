@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"syscall/js"
 
-	wof_placetypes "github.com/whosonfirst/go-whosonfirst-placetypes"	
+	wof_placetypes "github.com/whosonfirst/go-whosonfirst-placetypes"
 )
 
 func PlacetypesFunc(spec *wof_placetypes.WOFPlacetypeSpecification, planet_pt *wof_placetypes.WOFPlacetype) js.Func {
-	
+
 	roles_custom := []string{
 		wof_placetypes.CUSTOM_ROLE,
 	}
-	
+
 	return js.FuncOf(func(this js.Value, args []js.Value) interface{} {
 
 		handler := js.FuncOf(func(this js.Value, args []js.Value) interface{} {
@@ -24,7 +24,7 @@ func PlacetypesFunc(spec *wof_placetypes.WOFPlacetypeSpecification, planet_pt *w
 			go func() {
 
 				pt := spec.DescendantsForRoles(planet_pt, roles_custom)
-				
+
 				enc_pt, err := json.Marshal(pt)
 
 				if err != nil {
