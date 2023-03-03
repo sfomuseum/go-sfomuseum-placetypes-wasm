@@ -4,16 +4,23 @@ github.com/aaronland/go-http-rewrite
 # github.com/aaronland/go-http-static v0.0.2
 ## explicit; go 1.18
 github.com/aaronland/go-http-static
+# github.com/dominikbraun/graph v0.16.0
+## explicit; go 1.18
+github.com/dominikbraun/graph
+github.com/dominikbraun/graph/draw
 # github.com/sfomuseum/go-http-wasm v1.1.0
 ## explicit; go 1.18
 github.com/sfomuseum/go-http-wasm
 github.com/sfomuseum/go-http-wasm/static
-# github.com/sfomuseum/go-sfomuseum-placetypes v0.0.0-20230302210835-31bd456bd25e
+# github.com/sfomuseum/go-sfomuseum-placetypes v0.0.1
 ## explicit; go 1.18
 github.com/sfomuseum/go-sfomuseum-placetypes
-# github.com/whosonfirst/go-whosonfirst-placetypes v0.5.0
+# github.com/whosonfirst/go-whosonfirst-placetypes v0.6.0
 ## explicit; go 1.18
 github.com/whosonfirst/go-whosonfirst-placetypes
+# github.com/whosonfirst/go-whosonfirst-placetypes-wasm v0.1.0
+## explicit; go 1.18
+github.com/whosonfirst/go-whosonfirst-placetypes-wasm
 # golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4
 ## explicit; go 1.17
 golang.org/x/net/html
