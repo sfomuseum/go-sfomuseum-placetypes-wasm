@@ -1,7 +1,6 @@
 package http
 
 import (
-	"log"
 	gohttp "net/http"
 
 	aa_static "github.com/aaronland/go-http-static"
