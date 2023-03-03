@@ -8,6 +8,8 @@ import (
 	"github.com/sfomuseum/go-sfomuseum-placetypes-wasm/static"
 )
 
+/*
+
 // WASMOptions provides a list of JavaScript and CSS link to include with HTML output.
 type WASMOptions struct {
 	JS  []string
@@ -18,9 +20,7 @@ type WASMOptions struct {
 func DefaultWASMOptions() *WASMOptions {
 
 	opts := &WASMOptions{
-		JS: []string{
-			"/javascript/sfomuseum.placetypes.wasm.js",
-		},
+		JS: []string{},
 	}
 
 	return opts
@@ -40,6 +40,8 @@ func AppendResourcesHandlerWithPrefix(next gohttp.Handler, opts *WASMOptions, pr
 
 	return aa_static.AppendResourcesHandlerWithPrefix(next, static_opts, prefix)
 }
+
+*/
 
 // Append all the files in the net/http FS instance containing the embedded WASM assets to an *http.ServeMux instance.
 func AppendAssetHandlers(mux *gohttp.ServeMux) error {
