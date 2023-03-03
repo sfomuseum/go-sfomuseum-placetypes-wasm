@@ -41,9 +41,6 @@ func main() {
 	wasm_opts := wasm.DefaultWASMOptions()
 	example_handler = wasm.AppendResourcesHandler(example_handler, wasm_opts)
 
-	placetypes_wasm_opts := placetypes_wasm.DefaultWASMOptions()
-	example_handler = placetypes_wasm.AppendResourcesHandler(example_handler, placetypes_wasm_opts)
-
 	mux.Handle("/", example_handler)
 
 	addr := fmt.Sprintf("%s:%d", *host, *port)

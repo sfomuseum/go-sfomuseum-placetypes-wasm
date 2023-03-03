@@ -51,7 +51,10 @@ window.addEventListener("load", function load(event){
 	    });
     };
 
-    sfomuseum.placetypes.wasm.init().then(rsp => {
+    // https://github.com/sfomuseum/go-http-wasm
+    // https://github.com/sfomuseum/go-http-wasm/blob/main/static/javascript/sfomuseum.wasm.js
+    
+    sfomuseum.wasm.fetch("/wasm/sfomuseum_placetypes.wasm").then(rsp => {
 
 	sfomuseum_placetypes()
 	    .then((data) => {
