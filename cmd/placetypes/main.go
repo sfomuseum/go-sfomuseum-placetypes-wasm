@@ -16,30 +16,17 @@ func main() {
 		log.Fatalf("Failed to load SFO Museum placetypes specification, %w", err)
 	}
 
-	planet_pt, err := spec.GetPlacetypeByName("planet")
+	ancestors_func := wasm.AncestorsFunc(spec)
+	defer ancestors_func.Release()
 
-	if err != nil {
-		log.Fatalf("Failed to load SFO Museum placetypes specification, %w", err)
-	}
+	descendants_func := wasm.DescendantsFunc(spec)
+	defer descendants_func.Release()
 
-	/*
-
-		These don't work as expected in an SFO Museum context yet
-
-		ancestors_func := wasm.AncestorsFunc(spec)
-		defer ancestors_func.Release()
-
-		descendants_func := wasm.DescendantsFunc(spec)
-		defer descendants_func.Release()
-
-
-		js.Global().Set("sfomuseum_placetypes_descendants", descendants_func)
-		js.Global().Set("sfomuseum_placetypes_ancestors", ancestors_func)
-	*/
-
-	placetypes_func := wasm.PlacetypesFunc(spec, planet_pt)
+	placetypes_func := wasm.PlacetypesFunc(spec)
 	defer placetypes_func.Release()
 
+	js.Global().Set("sfomuseum_placetypes_descendants", descendants_func)
+	js.Global().Set("sfomuseum_placetypes_ancestors", ancestors_func)
 	js.Global().Set("sfomuseum_placetypes", placetypes_func)
 
 	c := make(chan struct{}, 0)

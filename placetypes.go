@@ -8,11 +8,7 @@ import (
 	wof_placetypes "github.com/whosonfirst/go-whosonfirst-placetypes"
 )
 
-func PlacetypesFunc(spec *wof_placetypes.WOFPlacetypeSpecification, planet_pt *wof_placetypes.WOFPlacetype) js.Func {
-
-	roles_custom := []string{
-		wof_placetypes.CUSTOM_ROLE,
-	}
+func PlacetypesFunc(spec *wof_placetypes.WOFPlacetypeSpecification) js.Func {
 
 	return js.FuncOf(func(this js.Value, args []js.Value) interface{} {
 
@@ -23,7 +19,12 @@ func PlacetypesFunc(spec *wof_placetypes.WOFPlacetypeSpecification, planet_pt *w
 
 			go func() {
 
-				pt := spec.DescendantsForRoles(planet_pt, roles_custom)
+				pt, err := spec.Placetypes()
+
+				if err != nil {
+					reject.Invoke(fmt.Sprintf("Failed to derive placetypes, %v", err))
+					return
+				}
 
 				enc_pt, err := json.Marshal(pt)
 
